@@ -27,47 +27,15 @@ const [confirmacionActiva, setConfirmacionActiva] = useState(false);
 
 
   useEffect(() => {
-    const guardarMeta = () => {
- 
-  if (
-    nombreMeta.trim() === "" ||
-    cantidadMeta.trim() === "" ||
-    recompensa.trim() === ""
-  ) {
-    alert("Completa todos los campos");
-    return;
-  }
 
-  const nuevaMeta = {
-    nombre: nombreMeta,
-    cantidad: cantidadMeta,
-    recompensa: recompensa
-  };
+  localStorage.setItem("nombreMeta", nombreMeta);
 
-  const nuevasMetas = [...metas, nuevaMeta];
+  localStorage.setItem("cantidadMeta", cantidadMeta);
 
-  setMetas(nuevasMetas);
+  localStorage.setItem("recompensa", recompensa);
 
-  localStorage.setItem(
-    "metas",
-    JSON.stringify(nuevasMetas)
-  );
+}, [nombreMeta, cantidadMeta, recompensa]);
 
-  alert("🎯 Meta guardada");
-  
-  };
-
-    localStorage.setItem("nombreMeta", nombreMeta);
-
-    localStorage.setItem("cantidadMeta", cantidadMeta);
-
-    localStorage.setItem("recompensa", recompensa);
-
-  }, [nombreMeta, cantidadMeta, recompensa]);
-
-  const progreso = cantidadMeta
-    ? (monedas / Number(cantidadMeta)) * 100
-    : 0;
     const guardarMeta = () => {
 
   if (

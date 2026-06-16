@@ -26,12 +26,7 @@ function App() {
   const [rol, setRol] = useState(
   localStorage.getItem("rol") || ""
   );
-  const [padreRegistrado, setPadreRegistrado] = useState(
-  localStorage.getItem("usuarioPadre") ? true : false
-);
-  const [limiteDiario, setLimiteDiario] = useState(
-  localStorage.getItem("limiteDiario") || 100
-);
+  
    useEffect(() => {
 
   localStorage.setItem("usuario", usuario);
